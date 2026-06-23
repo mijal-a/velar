@@ -48,6 +48,37 @@ const PROYECTOS = {
     ],
   },
 
+  'grafica-en-movimiento': {
+    titulo: 'Gráfica en movimiento',
+    texto: 'Video de gráfica en movimiento que explora forma, color y ritmo con transiciones fluidas y tipografía dinámica. Una pieza académica pensada para traducir ideas de diseño en una experiencia visual clara y energética.',
+    imagenes: [
+      {
+        src: 'assets/img/hallazgo2.jpg',
+        alt: 'a ',
+      },
+      
+      {
+        src: 'assets/img/hallazgo2_2.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/hallazgo2_3.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/hallazgo2_4.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/hallazgo2_5.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/hallazgo2_6.jpg',
+        alt: 'a ',
+      },
+    ]
+  }
   // Agregá acá cada proyecto nuevo, con la misma clave que pusiste
   // en data-proyecto del botón correspondiente en el HTML.
 };

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — Estudio de diseño</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/splash.css" />
+</head>
+<body>
+  <main class="splash" id="splash">
+    <img class="splash-bg-gradient" src="assets/img/bg-gradiente.png" alt="" aria-hidden="true" />
+    <img class="splash-bg-pattern" src="assets/img/bg-patron.png" alt="" aria-hidden="true" />
+
+    <div class="splash-inner">
+      <img class="logo-grande" src="assets/img/logo-grande.png" alt="Velar" />
+
+      <div class="splash-reveal" id="splashReveal">
+        <p class="splash-tagline">No todo se <em>revela</em> a primera vista</p>
+        <p class="splash-subtext">A veces hay que entrar...</p>
+
+        <a
+          href="home.html"
+          class="boton-descubrir"
+          id="botonDescubrir"
+          aria-label="Descubrir — ir al inicio del sitio"
+        >
+          <img src="assets/img/boton-descubrir.png" alt="Descubrir" />
+        </a>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="estudio-toggle"
+      id="estudioToggle"
+      aria-expanded="false"
+      aria-controls="splashReveal"
+    >
+      Estudio de diseño
+    </button>
+  </main>
+
+  <script src="js/splash.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!--<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — El escondite</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
+</head>
+<body class="page-body">
+  <header class="page-header">
+    <a href="home.html" class="logo-chico-link" aria-label="Velar — ir al inicio">
+      <img class="logo-chico" src="assets/img/logo-chico.png" alt="Velar" />
+    </a>
+    <a class="volver" href="home.html">&larr; Volver</a>
+  </header>
+
+  <main class="page-placeholder">
+    <img class="ventana-abierta" src="assets/img/ventana-elescondite.png" alt="El escondite" />
+    <h1>El escondite</h1>
+    <p>
+      Esta sección todavía está en construcción. Cuando me pases el diseño
+      de contenido de &laquo;El escondite&raquo;, lo maquetamos acá manteniendo
+      el header y el sistema de base que ya armamos.
+    </p>
+  </main>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — El escondite</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
+  <!-- Archivo nuevo a crear: css/elescondite.css -->
+  <link rel="stylesheet" href="css/elescondite.css" />
+</head>
+<body class="page-body escondite-page">
+
+  <!-- ===========================================================
+       LOGO (header chico, igual que el resto de páginas internas)
+       =========================================================== -->
+  <header class="page-header">
+    <a href="home.html" class="logo-chico-link" aria-label="Velar — ir al inicio">
+      <img class="logo-chico" src="assets/img/logo-chico.png" alt="Velar" />
+    </a>
+  </header>
+
+  <main class="escondite-main">
+
+    <!-- ===========================================================
+         TÍTULO "El escondite" con el juego tipográfico de doble
+         capa (texto oscuro + copia desplazada en verde sage detrás).
+         Esto es texto real (no imagen) para que sea fácil de mantener;
+         el efecto de superposición se resuelve en elescondite.css.
+         =========================================================== 
+    <h1 class="escondite-titulo">
+      <span class="escondite-titulo__sombra" aria-hidden="true">El escondite</span>
+      <span class="escondite-titulo__texto">El escondite</span>
+    </h1>
+-->
+    <img class="escondite-titulo" src="assets/img/escondite-titulo.png" alt="El escondite" />
+    <!-- ===========================================================
+         ETAPA 1 — INTRO (pantallas 42 / 43)
+         Visible al entrar a la página.
+         Botón "Descubrir el juego": el estado outline -> sólido es
+         CSS (:hover). El click lo maneja elescondite.js y debe:
+           1) ocultar <section data-etapa="intro">
+           2) mostrar <section data-etapa="niveles">
+         =========================================================== -->
+    <section class="escondite-etapa" data-etapa="intro">
+      <p class="escondite-bajada">
+        Algunas cosas sólo <strong>aparecen</strong> cuando se las mira dos veces
+      </p>
+
+      <button type="button" class="btn-descubrir-juego" id="btnDescubrirJuego">
+        Descubrir el juego
+      </button>
+    </section>
+
+    <!-- ===========================================================
+         ETAPA 2 — SELECCIÓN DE NIVEL (pantallas 44 / 45)
+         Oculta por defecto (hidden). elescondite.js la muestra
+         después del click en "Descubrir el juego".
+         Cada botón de nivel usa data-nivel="facil|intermedio|dificil".
+         Acá SE CLICKEA (no hover) para fijar el nivel en negrita;
+         el hover no debería cambiar nada visualmente distinto al click.
+         =========================================================== -->
+    <section class="escondite-etapa" data-etapa="niveles" hidden>
+      <!-- Ícono decorativo (el aro/spiral que aparece en pantallas 44-46).
+           Reemplazar src cuando subas el PNG/SVG definitivo. -->
+      <img class="escondite-icono" src="assets/img/escondite-icono.png" alt="" aria-hidden="true" />
+
+      <p class="escondite-elegi-nivel">Elegí tu nivel</p>
+
+      <div class="selector-niveles" role="group" aria-label="Elegir nivel de dificultad">
+        <button type="button" class="selector-niveles__btn" data-nivel="facil">
+          Fácil
+        </button>
+        <button type="button" class="selector-niveles__btn" data-nivel="intermedio">
+          Intermedio
+        </button>
+        <button type="button" class="selector-niveles__btn" data-nivel="dificil">
+          Difícil
+        </button>
+      </div>
+
+      <p class="escondite-instruccion">Descubrí las 7 diferencias</p>
+    </section>
+
+    <!-- ===========================================================
+         ETAPA 3 — JUEGO (pantalla 46)
+         Oculta por defecto. elescondite.js la muestra al elegir nivel y
+         es responsable de:
+           - cargar las 2 imágenes del nivel elegido (data-nivel-actual)
+           - generar los 7 puntos clicleables de diferencias (ver
+             contenedor [data-diferencias] más abajo, hoy vacío)
+           - actualizar el cronómetro en [data-tiempo]
+           - actualizar el contador en [data-hallazgos-contador]
+           - manejar el click de [data-boton-revelar]
+         =========================================================== -->
+    <section class="escondite-etapa" data-etapa="juego" hidden>
+
+      <!-- Indicador de nivel actual (F / I / D). elescondite.js debe
+           agregar la clase "is-activo" a la letra correspondiente
+           cuando se carga el nivel. -->
+      <div class="indicador-nivel" aria-hidden="true">
+        <span class="indicador-nivel__letra" data-letra-nivel="facil">F</span>
+        <span class="indicador-nivel__letra" data-letra-nivel="intermedio">I</span>
+        <span class="indicador-nivel__letra" data-letra-nivel="dificil">D</span>
+      </div>
+
+      <div class="juego-tablero">
+
+        <!-- Imagen A (izquierda / "original").
+             elescondite.js define el src según el nivel:
+             assets/img/escondite-<nivel>-a.jpg -->
+        <div class="juego-imagen-wrap">
+          <img
+            class="juego-imagen"
+            id="imagenA"
+            src=""
+            data-img-a
+            alt="Imagen del nivel — versión A"
+          />
+          <!-- Acá se insertan dinámicamente los 7 botones de diferencia
+               para esta imagen (si el diseño final las ubica en la A). -->
+          <div class="juego-diferencias" data-diferencias="a"></div>
+        </div>
+
+        <!-- Imagen B (derecha / "con diferencias").
+             assets/img/escondite-<nivel>-b.jpg -->
+        <div class="juego-imagen-wrap">
+          <img
+            class="juego-imagen"
+            id="imagenB"
+            src=""
+            data-img-b
+            alt="Imagen del nivel — versión B"
+          />
+          <div class="juego-diferencias" data-diferencias="b"></div>
+        </div>
+
+        <!-- Panel lateral: tiempo, contador de hallazgos y botón Revelar -->
+        <aside class="juego-panel">
+          <p class="juego-panel__etiqueta">tiempo</p>
+          <p class="juego-panel__tiempo" data-tiempo>00:00</p>
+
+          <p class="juego-panel__etiqueta juego-panel__etiqueta--hallazgos">hallazgos</p>
+          <p class="juego-panel__contador">
+            <span data-hallazgos-contador>0</span>/<span data-hallazgos-total>7</span>
+          </p>
+
+          <!-- Termina la partida sin importar cuántas diferencias
+               se hayan encontrado. Abre el modal final. -->
+          <button type="button" class="btn-revelar" data-boton-revelar>
+            Revelar
+          </button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===========================================================
+       MODAL FINAL (pantalla 47 + agregado del botón de cierre)
+       Mismo patrón que el modal de hallazgos.html: oculto con
+       [hidden], overlay oscuro, cierre con el ícono de 3 cuadrados.
+       El título, el texto educativo y el aside ("Diseñar también
+       implica...") cambian según el nivel jugado: completalos desde
+       elescondite.js en un diccionario tipo:
+         const NIVELES = {
+           facil:      { tituloModal: '...', textoModal: '...', asideModal: '...' },
+           intermedio: { ... },
+           dificil:    { ... },
+         }
+       Al cerrar este modal con [data-modal-cerrar] hay que volver a
+       mostrar la etapa "niveles" (no la "juego"), para permitir
+       jugar de nuevo. El nav de abajo debe ocultarse mientras este
+       modal esté abierto (ver clase "nav-oculto" más abajo).
+       =========================================================== -->
+  <div class="modal-overlay" id="modalOverlay" data-modal-overlay hidden>
+    <div
+      class="modal modal--escondite"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitulo"
+      data-modal
+    >
+      <button
+        type="button"
+        class="modal__cerrar"
+        id="modalCerrar"
+        data-modal-cerrar
+        aria-label="Cerrar y volver a elegir nivel"
+      >
+        <img src="assets/img/cerrar-hallazgos.png" alt="" />
+      </button>
+
+      <div class="modal__contenido">
+        <div class="modal__columna-principal">
+          <h2 class="modal__titulo" id="modalTitulo" data-modal-titulo>¡Buen ojo!</h2>
+
+          <p class="modal__texto" data-modal-texto>
+            <!-- Texto educativo por nivel: lo completa elescondite.js -->
+          </p>
+
+          <p class="modal__resultado">
+            Encontraste
+            <strong><span data-modal-encontradas>0</span>/<span data-modal-total>7</span></strong>
+            diferencias
+          </p>
+        </div>
+
+        <!-- Texto decorativo grande (ver "Diseñar también implica..." en
+             pantalla 47). Es texto real, no imagen, para poder cambiarlo
+             por nivel desde el mismo diccionario NIVELES. -->
+        <p class="modal__aside" data-modal-aside aria-hidden="true"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================================================
+       NAV INFERIOR — mismo sistema de ventanas que el resto del sitio.
+       "El escondite" es la página activa (cuarta ventana).
+       elescondite.js debe agregar/quitar la clase "nav-oculto" en este
+       <nav> para esconderlo mientras el modal final está abierto.
+       =========================================================== -->
+  <nav class="windows-nav" aria-label="Navegación entre secciones" id="navInferior">
+    <a class="window-nav" href="elpatio.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El patio</span>
+    </a>
+    <a class="window-nav" href="hallazgos.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">Hallazgos</span>
+    </a>
+    <a class="window-nav" href="puertasadentro.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">Puertas adentro</span>
+    </a>
+    <a class="window-nav" href="elescondite.html" aria-current="page">
+      <img src="assets/img/ventana-nav-activa.png" alt="" />
+      <span class="window-nav-tooltip">El escondite</span>
+    </a>
+    <a class="window-nav" href="elumbral.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El umbral</span>
+    </a>
+  </nav>
+
+  <script src="js/nav-ventanas.js"></script>
+  <!-- Archivo nuevo a crear: js/elescondite.js -->
+  <script src="js/elescondite.js"></script>
+</body>
+</html>

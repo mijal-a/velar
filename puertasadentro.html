@@ -1,0 +1,202 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — Puertas adentro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
+</head>
+<body class="page-body">
+  <header class="page-header">
+    <a href="home.html" class="logo-chico-link" aria-label="Velar — ir al inicio">
+      <img class="logo-chico" src="assets/img/logo-chico.png" alt="Velar" />
+    </a>
+    <a class="volver" href="home.html">&larr; Volver</a>
+  </header>
+
+  <main class="page-placeholder">
+    <img class="ventana-abierta" src="assets/img/ventana-puertasadentro.png" alt="Puertas adentro" />
+    <h1>Puertas adentro</h1>
+    <p>
+      Esta sección todavía está en construcción. Cuando me pases el diseño
+      de contenido de &laquo;Puertas adentro&raquo;, lo maquetamos acá manteniendo
+      el header y el sistema de base que ya armamos.
+    </p>
+  </main>
+</body>
+</html>
+--> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — Puertas adentro</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+ 
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
+  <link rel="stylesheet" href="css/puertasadentro.css" />
+</head>
+<body class="puertasadentro-page">
+ 
+  <!-- ===========================================================
+       HEADER — solo logo (versión clara, fondo oscuro), mismo
+       patrón que el resto de las páginas internas.
+       =========================================================== -->
+  <header class="page-header">
+    <a href="home.html" class="logo-chico-link" aria-label="Velar — ir al inicio">
+      <img class="logo-chico logo-chico--claro" src="assets/img/logo-chico-claro.png" alt="Velar" />
+    </a>
+  </header>
+ 
+  <!-- ===========================================================
+       CONTENIDO PRINCIPAL
+       Título con eco/sombra + manija que despliega el equipo.
+       =========================================================== -->
+  <main class="puertasadentro-main">
+ 
+    <img class="puertasadentro-titulopng" src="assets/img/puertasadentro-titulo.png" alt="El escondite" />
+ 
+    <h2 class="puertasadentro-subtitulo">¿Quiénes somos?</h2>
+ 
+    <!-- Manija: al clickear despliega el equipo (puertasadentro.js) -->
+    <button type="button" class="manija" id="btnManija" aria-expanded="false" aria-controls="equipo">
+      <img src="assets/img/manija.png" alt="Abrir" />
+    </button>
+ 
+    <section class="equipo" id="equipo">
+
+      <article class="integrante" data-id="mijal">
+        <span class="integrante__nombre">Mijal Averbuch</span>
+
+        <img
+          class="integrante__foto"
+          src="assets/img/equipo-mijal.png"
+          alt="Mijal Averbuch"
+        >
+
+        <div class="integrante__hover">
+        </div>
+
+        <div class="integrante__bio">
+          <h3>Mijal Averbuch</h3>
+
+          <p class="integrante__rol">
+            Diseñadora Gráfica y Dirección de Arte
+          </p>
+
+          <p class="integrante__texto">
+            Especializada en identidad visual y diseño editorial.
+            Trabaja desde la escucha y la observación,
+            construyendo sistemas que <span class="integrante__destacar">revelan la esencia</span>
+            de cada proyecto.
+          </p>
+        </div>
+      </article>
+
+      <article class="integrante" data-id="ilan">
+        <span class="integrante__nombre">Ilán Averbuch</span>
+
+        <img
+          class="integrante__foto"
+          src="assets/img/equipo-ilan.png"
+          alt="Ilán Averbuch"
+        >
+
+        <div class="integrante__hover">
+        </div>
+
+        <div class="integrante__bio">
+          <h3>Ilán Averbuch</h3>
+
+          <p class="integrante__rol">
+            Project Manager
+          </p>
+
+          <p class="integrante__texto">
+            Coordina procesos, tiempos y equipos para que cada proyecto avance con claridad y coherencia. 
+            Su enfoque combina organización, comunicación y una mirada estratégica orientada a
+            <span class="integrante__destacar">transformar ideas en resultados</span>.
+          </p>
+        </div>
+      </article>
+
+      <article class="integrante" data-id="noah">
+        <span class="integrante__nombre">Noah Averbuch</span>
+
+        <img
+          class="integrante__foto"
+          src="assets/img/equipo-noah.png"
+          alt="Noah Averbuch"
+        >
+
+        <div class="integrante__hover">
+        </div>
+
+        <div class="integrante__bio">
+          <h3>Noah Averbuch</h3>
+
+          <p class="integrante__rol">
+            Producción Audiovisual
+          </p>
+
+          <p class="integrante__texto">
+            Explora el lenguaje de la imagen y el movimiento para construir relatos visuales sensibles y cercanos. Su trabajo busca capturar detalles, atmósferas y momentos que ayudan a 
+            <span class="integrante__destacar">dar vida a cada historia</span>.
+          </p>
+        </div>
+      </article>
+
+    </section>
+ 
+  </main>
+ 
+  <!-- ===========================================================
+       NAV INFERIOR — mismo sistema de ventanas que hallazgos.html.
+       "Puertas adentro" es la página activa (tercera ventana).
+       =========================================================== -->
+  <nav class="windows-nav" aria-label="Navegación entre secciones">
+    <a class="window-nav" href="elpatio.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El patio</span>
+    </a>
+    <a class="window-nav" href="hallazgos.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">Hallazgos</span>
+    </a>
+    <a class="window-nav" href="puertasadentro.html" aria-current="page">
+      <img src="assets/img/ventana-nav-activa.png" alt="" />
+      <span class="window-nav-tooltip">Puertas adentro</span>
+    </a>
+    <a class="window-nav" href="elescondite.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El escondite</span>
+    </a>
+    <a class="window-nav" href="elumbral.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El umbral</span>
+    </a>
+  </nav>
+ 
+  <script src="js/nav-ventanas.js"></script>
+  <script src="js/puertasadentro.js"></script>
+
+  <div class="bio-overlay"></div>
+</body>
+</html>

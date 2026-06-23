@@ -1,0 +1,475 @@
+/* =====================================================
+   EL ESCONDITE — estilos específicos de la página
+   (intro, selección de nivel, tablero de juego, modal final).
+   El nav inferior (.windows-nav) ya está en page.css; acá solo
+   se agrega la utilidad .nav-oculto para esconderlo con el modal.
+   ===================================================== */
+
+:root {
+  --escondite-bg: #e9ecdf;
+  --escondite-verde-sombra: #9aac86;
+  --escondite-oscuro: #101b0d;
+  --escondite-boton-texto: #4b5443;
+  --escondite-boton-borde: #97a98c;
+  --escondite-nivel-inactivo: #797d71;
+  --escondite-nivel-activo: #565f4e;
+}
+
+/* ---------- Página ---------- */
+
+.escondite-page {
+  background-color: var(--escondite-bg);
+}
+
+.page-body.escondite-page::before {
+  content: none;
+}
+
+.escondite-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /*padding: clamp(2.5rem, 7vh, 5rem) clamp(1.25rem, 4vw, 3rem) clamp(7rem, 16vh, 10rem);*/
+}
+
+
+.escondite-titulo {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem); 
+}
+
+.escondite-titulo__texto {
+  position: relative;
+  color: var(--escondite-oscuro);
+}
+
+.escondite-titulo__sombra {
+  position: absolute;
+  top: 0;
+  left: 0.55em;
+  color: var(--escondite-verde-sombra);
+  z-index: 0;
+}
+
+/* ---------- Etapas (intro / niveles / juego) ---------- */
+
+.escondite-etapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.escondite-etapa[hidden] {
+  display: none;
+}
+
+/* ---------- Etapa 1: intro ---------- */
+
+.escondite-bajada {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--c-text-dark);
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+.escondite-bajada strong {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.btn-descubrir-juego {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--escondite-boton-texto);
+  background-color: transparent;
+  border: 2px solid var(--escondite-boton-borde);
+  border-radius: 3px;
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-descubrir-juego:hover,
+.btn-descubrir-juego:focus-visible {
+  background-color: var(--escondite-boton-texto);
+  color: #e7e9da;
+}
+
+/* ---------- Etapa 2: selección de nivel ---------- */
+
+.escondite-icono {
+  width: clamp(28px, 3vw, 38px);
+  margin-bottom: 1.25rem;
+}
+
+.escondite-elegi-nivel {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--escondite-nivel-activo);
+  margin-bottom: 1.25rem;
+}
+
+.selector-niveles {
+  display: flex;
+  border: 2px solid var(--escondite-boton-borde);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.selector-niveles__btn {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  letter-spacing: 0.02em;
+  color: var(--escondite-nivel-inactivo);
+  background: none;
+  border: none;
+  border-right: 1px dashed var(--escondite-boton-borde);
+  padding: 1.5rem clamp(1.5rem, 4vw, 3rem);
+  cursor: pointer;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.selector-niveles__btn:last-child {
+  border-right: none;
+}
+
+.selector-niveles__btn:hover,
+.selector-niveles__btn:focus-visible {
+  color: var(--escondite-nivel-activo);
+}
+
+/* elescondite.js agrega esta clase al botón clickeado */
+.selector-niveles__btn.is-seleccionado {
+  color: var(--escondite-nivel-activo);
+  font-weight: 800;
+}
+
+.escondite-instruccion {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--c-text-dark);
+  margin-top: 1.75rem;
+}
+
+/* ---------- Etapa 3: juego ---------- */
+
+.indicador-nivel {
+  display: flex;
+  border: 2px solid var(--escondite-boton-borde);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.indicador-nivel__letra {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--escondite-nivel-inactivo);
+  border-right: 1px dashed var(--escondite-boton-borde);
+  padding: 0.5rem 1.1rem;
+}
+
+.indicador-nivel__letra:last-child {
+  border-right: none;
+}
+
+/* elescondite.js marca la letra del nivel activo con esta clase */
+.indicador-nivel__letra.is-activo {
+  color: var(--escondite-nivel-activo);
+  font-weight: 800;
+}
+
+.juego-tablero {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: var(--container-max);
+  background-color: var(--c-cream-soft);
+  border-radius: 2px;
+  box-shadow: 0 18px 44px rgba(20, 22, 12, 0.18);
+  overflow: hidden;
+  text-align: left;
+}
+
+.juego-imagen-wrap {
+  position: relative;
+  flex: 1 1 0;
+  line-height: 0;
+  border-right: 1px solid var(--c-border-soft);
+}
+
+.juego-imagen-wrap:last-of-type {
+  border-right: none;
+}
+
+.juego-imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenedor donde elescondite.js inyecta los 7 botones de diferencia
+   por imagen. Cada botón generado debería ser algo como:
+   <button class="diferencia-punto" style="top:X%; left:Y%;"
+           data-encontrada="false" aria-label="Diferencia encontrada"></button>
+   Ya queda preparado el estilo de ese botón acá abajo. */
+.juego-diferencias {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.juego-diferencias .diferencia-punto {
+  position: absolute;
+  width: clamp(28px, 3vw, 38px);
+  height: clamp(28px, 3vw, 38px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.juego-diferencias .diferencia-punto[data-encontrada='true'] {
+  border-color: var(--c-sage-dark);
+  background-color: rgba(124, 143, 104, 0.25);
+}
+
+.juego-panel {
+  flex: 0 0 clamp(200px, 18vw, 260px);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background-color: var(--c-cream-soft);
+}
+
+.juego-panel__etiqueta {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.juego-panel__etiqueta--hallazgos {
+  margin-top: 7%;
+  display: inline-block;
+  width: fit-content;
+  background-color: var(--c-sage);
+  padding: 0.05rem 0.5rem;
+  border-radius: 2px;
+  font-size:xx-large;
+}
+
+.juego-panel__tiempo {
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  color: var(--c-text-muted);
+  margin-top: 0.2rem;
+}
+
+.juego-panel__contador {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  color: var(--c-text-dark);
+  margin-top: 1%;
+  margin-bottom: 10%;
+}
+
+.btn-revelar {
+  margin-top: auto;
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  color: #e7e9da;
+  background-color: var(--escondite-nivel-activo);
+  border: none;
+  border-radius: 2px;
+  padding: 0.85rem 1.75rem;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.btn-revelar:hover,
+.btn-revelar:focus-visible {
+  filter: brightness(1.1);
+}
+
+/* ---------- Nav inferior oculto mientras el modal está abierto ---------- */
+
+.windows-nav.nav-oculto {
+  display: none;
+}
+
+/* ---------- Overlay + Modal final ---------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background-color: rgba(30, 36, 24, 0.65);
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  width: auto;
+  max-width: min(900px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--c-cream-soft);
+  border: 2px solid var(--c-sage);
+  border-radius: 2px;
+  box-shadow: 0 24px 60px rgba(20, 22, 12, 0.4);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  text-align: left;
+}
+
+.modal__cerrar {
+  position: absolute;
+  top: clamp(0.75rem, 2vw, 1.25rem);
+  right: clamp(0.75rem, 2vw, 1.25rem);
+  width: clamp(34px, 4vw, 46px);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal__cerrar:hover,
+.modal__cerrar:focus-visible {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.modal__cerrar img {
+  display: block;
+  width: 100%;
+}
+
+/* Modal de El escondite: dos columnas (texto principal + aside grande) */
+.modal--escondite .modal__contenido {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.3fr) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.modal__titulo {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  color: var(--c-text-dark);
+  text-shadow: 2px 2px 0 var(--c-sage);
+  margin-bottom: 1rem;
+}
+
+.modal__texto {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--c-text-dark);
+  margin-bottom: 1.25rem;
+}
+
+.modal__texto strong {
+  font-weight: 700;
+}
+
+.modal__resultado {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--c-text-muted);
+}
+
+.modal__resultado strong {
+  color: var(--c-text-dark);
+}
+
+.modal__aside {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--c-sage);
+  text-align: right;
+  margin-top: 2%;
+  margin-right: 13%;
+}
+
+.diferencia-punto-auto{
+    
+    width: clamp(58px, 6vw, 126px) !important;
+    height: clamp(58px, 6vw, 106px) !important;
+}
+
+.diferencia-punto-rueda{
+    
+    width: clamp(38px, 6vw, 126px) !important;
+    height: clamp(38px, 6vw, 106px) !important;
+}
+
+.diferencia-punto-colectivo{
+    
+    width: clamp(70px, 5vw, 126px) !important;
+    height: clamp(70px, 5vw, 106px) !important;
+}
+
+.diferencia-punto{
+  /*border: 3px solid red !important;
+  background: rgba(255,0,0,.25) !important;
+*/}
+
+
+@media (max-width: 760px) {
+  .juego-tablero {
+    flex-wrap: wrap;
+  }
+
+  .juego-imagen-wrap {
+    flex: 1 1 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--c-border-soft);
+  }
+
+  .juego-panel {
+    flex: 1 1 100%;
+  }
+
+  .modal--escondite .modal__contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__aside {
+    text-align: left;
+  }
+}

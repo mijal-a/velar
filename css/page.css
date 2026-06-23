@@ -1,0 +1,265 @@
+/* =====================================================
+   PÁGINAS INTERNAS — El patio / Hallazgos / Puertas adentro /
+   El escondite / El umbral
+   Por ahora son placeholders: cuando me pases el diseño de
+   contenido de cada una, reemplazamos el bloque ".page-placeholder"
+   por la maquetación real, sin tocar el header ni el sistema base.
+   ===================================================== */
+
+.page-body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/img/bg-patron.png');
+  background-repeat: repeat;
+  background-size: 700px auto;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: clamp(1.5rem, 4vh, 2.5rem) clamp(1.5rem, 4vw, 3rem) 0; */
+}
+
+.page-header .logo-chico {
+  width: clamp(86px, 8vw, 124px);
+}
+
+.volver {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--c-text-muted);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.volver:hover,
+.volver:focus-visible {
+  color: var(--c-text-dark);
+  transform: translateX(-4px);
+}
+
+.page-placeholder {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vh, 4rem) 1.5rem clamp(4rem, 10vh, 7rem);
+}
+
+.page-placeholder .ventana-abierta {
+  width: clamp(220px, 30vw, 380px);
+}
+
+.page-placeholder h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--c-text-dark);
+}
+
+.page-placeholder p {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  color: var(--c-text-muted);
+  max-width: 32rem;
+}
+
+.page-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.intro {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(260px, 38%) 1fr;
+  gap: 2rem;
+  padding: clamp(1.5rem, 5vh, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(6rem, 14vh, 9rem);
+  align-items: start;
+}
+
+.intro-kicker {
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  letter-spacing: 0.02em;
+  color: var(--c-text-muted);
+  margin-bottom: 1rem;
+}
+
+.intro-heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+  line-height: 1.08;
+  color: var(--c-text-dark);
+  margin-bottom: 1.4rem;
+}
+
+.intro-heading em {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.intro-copy p {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  color: var(--c-text-dark);
+  max-width: 30rem;
+  margin-bottom: 0.85rem;
+}
+
+.intro-copy-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  color: var(--c-text-muted);
+}
+
+.intro-copy strong {
+  font-weight: 700;
+}
+
+.intro-copy-underlined {
+  position: relative;
+  display: inline-block;
+}
+
+.subrayado {
+    position: absolute;
+    left: -9px;
+    bottom: -22%;
+    width: 92%;
+    height: 70%;
+    max-width: 417px;
+    pointer-events: none;
+}
+
+.intro-right {
+  text-align: right;
+}
+
+.intro-right-small {
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+  line-height: 1.6;
+  color: var(--c-text-muted);
+  margin-bottom: clamp(2rem, 8vh, 5rem);
+}
+
+.intro-right-small em {
+  font-style: italic;
+}
+
+.intro-watermark {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(3.4rem, 8.5vw, 8rem);
+  line-height: 0.95;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(93, 90, 53, 0.35);
+  text-shadow: 1px rgba(93, 90, 53, 0.35);
+  user-select: none;
+}
+
+/* Nav inferior de ventanas (presente en las 5 páginas internas) */
+.windows-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 40%;
+  z-index: 1000;
+  z-index: 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.window-nav {
+  position: relative;
+  display: block;
+  width: 7%;
+  transition: transform 0.2s ease;
+}
+
+.window-nav:hover,
+.window-nav:focus-visible {
+  transform: translateY(-2px);
+}
+
+.window-nav img {
+  width: 100%;
+  display: block;
+}
+
+.window-nav-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 0.5rem;
+  transform: translate(-50%, 4px);
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  color: var(--c-text-dark);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.window-nav:hover .window-nav-tooltip,
+.window-nav:focus-visible .window-nav-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 860px) {
+  .intro {
+    grid-template-columns: 1fr;
+    padding-bottom: clamp(8rem, 26vh, 11rem);
+  }
+
+  .intro-right {
+    text-align: left;
+  }
+
+  .intro-watermark {
+    text-align: left;
+  }
+
+  .windows-nav {
+    left: 5%;
+    width: 90%;
+  }
+
+  .window-nav {
+    width: 16%;
+  }
+}

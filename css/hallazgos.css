@@ -1,0 +1,312 @@
+
+/* =====================================================
+   HALLAZGOS — estilos específicos de la página
+   (header, grilla de proyectos, modal, overlay).
+   El nav inferior (.windows-nav) ya está definido en page.css
+   y se reutiliza sin cambios.
+   ===================================================== */
+
+/* ---------- Página ---------- */
+
+.hallazgos-page {
+  background-color: #5f6c56;
+  overflow-x: hidden;
+}
+
+.page-body.hallazgos-page::before {
+  content: none;
+}
+
+/* ---------- Header ---------- */
+
+.hallazgos-header {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.hallazgos-header__fondo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hallazgos-header__logo-link {
+  position: absolute;
+  top: clamp(1rem, 3vh, 2rem);
+  left: clamp(1.5rem, 4vw, 3rem);
+  z-index: 2;
+  display: inline-block;
+}
+
+.logo-chico--claro {
+  width: clamp(70px, 7vw, 108px);
+}
+
+/* ---------- Grilla de proyectos ---------- */
+
+.hallazgos-main {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2rem, 5vh, 3.5rem) clamp(1.25rem, 4vw, 3rem) clamp(6rem, 14vh, 9rem);
+}
+
+.hallazgos-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.7rem, 1.3vw, 1.15rem);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.grid-cell {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  background-color: #51402a;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  aspect-ratio: 304 / 142;
+  transition: transform 0.2s ease, background-image 0.15s ease;
+}
+
+.grid-cell:disabled {
+  cursor: default;
+}
+
+.grid-cell--wide {
+  aspect-ratio: 624 / 142;
+}
+
+.grid-cell--big {
+  aspect-ratio: 624 / 300;
+}
+
+.grid-cell--tall {
+  aspect-ratio: 304 / 300;
+}
+
+/* Bordes "idle" (marrón + marco característico de cada celda) */
+
+.grid-cell--border-green {
+  background-image: url('../assets/img/celda-borde-verde.png');
+}
+
+.grid-cell--border-cream {
+  background-image: url('../assets/img/celda-borde-crema.png');
+}
+
+.grid-cell--border-peach {
+  background-image: url('../assets/img/celda-borde-durazno.png');
+}
+
+/* Hover por categoría: cambia el fondo, mantiene el resto del trazo de la celda */
+
+.grid-cell[data-categoria]:hover,
+.grid-cell[data-categoria]:focus-visible {
+  transform: translateY(-2px);
+}
+
+.grid-cell[data-categoria='movimiento']:hover,
+.grid-cell[data-categoria='movimiento']:focus-visible {
+  background-image: url('../assets/img/categoria-movimiento.png');
+}
+
+.grid-cell[data-categoria='editorial']:hover,
+.grid-cell[data-categoria='editorial']:focus-visible {
+  background-image: url('../assets/img/categoria-editorial.png');
+}
+
+.grid-cell--wide[data-categoria='editorial']:hover,
+.grid-cell--wide[data-categoria='editorial']:focus-visible {
+  background-image: url('../assets/img/categoria-editorial-ancha.png');
+}
+
+.grid-cell[data-categoria='identidad']:hover,
+.grid-cell[data-categoria='identidad']:focus-visible {
+  background-image: url('../assets/img/categoria-identidad.png');
+}
+
+.grid-cell--big[data-categoria='identidad']:hover,
+.grid-cell--big[data-categoria='identidad']:focus-visible {
+  background-image: url('../assets/img/categoria-identidad-grande.png');
+}
+
+/* Posiciones en la grilla (sin estilos inline) */
+
+  .pos-r1c1 { grid-row: 1; grid-column: 1; }
+  .pos-r1c2 { grid-row: 1; grid-column: 2; }
+  .pos-r1c3 { grid-row: 1; grid-column: 3; }
+  .pos-r1c4 { grid-row: 1; grid-column: 4; }
+  .pos-r1c5 { grid-row: 1; grid-column: 5; }
+  .pos-r2c1 { grid-row: 2; grid-column: 1; }
+  .pos-r2c2 { grid-row: 2; grid-column: 2; }
+  .pos-r2c3 { grid-row: 2; grid-column: 3; }
+  .pos-r2c4 { grid-row: 2; grid-column: 4; }
+  .pos-r2c5 { grid-row: 2; grid-column: 5; }
+  .pos-r3c1 { grid-row: 3; grid-column: 1; }
+  .pos-r3c2 { grid-row: 3; grid-column: 2; }
+  .pos-r3c3 { grid-row: 3; grid-column: 3; }
+  .pos-r3c4 { grid-row: 3; grid-column: 4 / span 2; }
+  .pos-r4c1 { grid-row: 4; grid-column: 1; }
+  .pos-r4c2 { grid-row: 4; grid-column: 2; }
+  .pos-r4c3 { grid-row: 4; grid-column: 3; }
+  .pos-r4c4 { grid-row: 4; grid-column: 4; }
+  .pos-r4c5 { grid-row: 4; grid-column: 5; }
+  .pos-r5c1 { grid-row: 5; grid-column: 1; }
+  .pos-r5c2 { grid-row: 5 / span 2; grid-column: 2 / span 2; }
+  .pos-r5c4 { grid-row: 5; grid-column: 4; }
+  .pos-r5c5 { grid-row: 5; grid-column: 5; }
+  .pos-r6c1 { grid-row: 6; grid-column: 1; }
+  .pos-r6c4 { grid-row: 6; grid-column: 4; }
+  .pos-r6c5 { grid-row: 6; grid-column: 5; }
+  .pos-r7c1 { grid-row: 7; grid-column: 1; }
+  .pos-r7c2 { grid-row: 7; grid-column: 2; }
+  .pos-r7c3 { grid-row: 7; grid-column: 3; }
+  .pos-r7c4 { grid-row: 7; grid-column: 4; }
+  .pos-r7c5 { grid-row: 7; grid-column: 5; }
+  .pos-r8c1 { grid-row: 8 / span 2; grid-column: 1; }
+  .pos-r8c2 { grid-row: 8; grid-column: 2; }
+  .pos-r8c3 { grid-row: 8; grid-column: 3; }
+  .pos-r8c4 { grid-row: 8; grid-column: 4; }
+  .pos-r8c5 { grid-row: 8; grid-column: 5; }
+  .pos-r9c2 { grid-row: 9; grid-column: 2; }
+  .pos-r9c3 { grid-row: 9; grid-column: 3; }
+  .pos-r9c4 { grid-row: 9; grid-column: 4; }
+  .pos-r9c5 { grid-row: 9; grid-column: 5; }
+
+/* Mobile: se abandona el posicionamiento pixel-perfect y se simplifica a una
+   grilla regular de 2 columnas, todas las celdas con la misma proporción */
+
+@media (max-width: 700px) {
+  .hallazgos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pos-r1c1, .pos-r1c2, .pos-r1c3, .pos-r1c4, .pos-r1c5,
+  .pos-r2c1, .pos-r2c2, .pos-r2c3, .pos-r2c4, .pos-r2c5,
+  .pos-r3c1, .pos-r3c2, .pos-r3c3, .pos-r3c4,
+  .pos-r4c1, .pos-r4c2, .pos-r4c3, .pos-r4c4, .pos-r4c5,
+  .pos-r5c1, .pos-r5c2, .pos-r5c4, .pos-r5c5,
+  .pos-r6c1, .pos-r6c4, .pos-r6c5,
+  .pos-r7c1, .pos-r7c2, .pos-r7c3, .pos-r7c4, .pos-r7c5,
+  .pos-r8c1, .pos-r8c2, .pos-r8c3, .pos-r8c4, .pos-r8c5,
+  .pos-r9c2, .pos-r9c3, .pos-r9c4, .pos-r9c5 {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .grid-cell--wide,
+  .grid-cell--big,
+  .grid-cell--tall {
+    grid-column: span 2;
+    aspect-ratio: 304 / 142;
+  }
+}
+
+/* ---------- Overlay + Modal ---------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background-color: rgba(26, 31, 19, 0.62);
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  width: auto;
+  max-width: min(760px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #ece4d2;
+  border: 2px solid var(--c-sage);
+  border-radius: 2px;
+  box-shadow: 0 24px 60px rgba(20, 22, 12, 0.4);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.modal__cerrar {
+  position: absolute;
+  top: clamp(0.75rem, 2vw, 1.25rem);
+  right: clamp(0.75rem, 2vw, 1.25rem);
+  width: clamp(34px, 4vw, 46px);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal__cerrar:hover,
+.modal__cerrar:focus-visible {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.modal__cerrar img {
+  display: block;
+  width: 100%;
+}
+
+.modal__header {
+  padding-right: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--c-sage-dark);
+  padding-bottom: 0.6rem;
+}
+
+.modal__titulo {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--c-text-dark);
+}
+
+.modal__texto {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  line-height: 1.6;
+  color: var(--c-text-dark);
+  max-width: 46rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal__galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.modal__galeria img {
+  display: block;
+  flex: 1 1 220px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+/* Bloquea el scroll de la página cuando el modal está abierto
+   (hallazgos.js agrega/quita esta clase en <body>) */
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}

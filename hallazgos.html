@@ -1,0 +1,200 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — Hallazgos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
+</head>
+<body class="page-body">
+  <header class="page-header">
+    <a href="home.html" class="logo-chico-link" aria-label="Velar — ir al inicio">
+      <img class="logo-chico" src="assets/img/logo-chico.png" alt="Velar" />
+    </a>
+    <a class="volver" href="home.html">&larr; Volver</a>
+  </header>
+
+  <main class="page-placeholder">
+    <img class="ventana-abierta" src="assets/img/ventana-hallazgos.png" alt="Hallazgos" />
+    <h1>Hallazgos</h1>
+    <p>
+      Esta sección todavía está en construcción. Cuando me pases el diseño
+      de contenido de &laquo;Hallazgos&raquo;, lo maquetamos acá manteniendo
+      el header y el sistema de base que ya armamos.
+    </p>
+  </main>
+</body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velar — Hallazgos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page.css" />
+  <link rel="stylesheet" href="css/hallazgos.css" />
+</head>
+<body class="page-body hallazgos-page">
+
+  <!-- ===========================================================
+       HEADER
+       Fondo: juego tipográfico "HALLAZGOS" + "hallazgos" / "estudio velar"
+       repetidos (asset hallazgos-header-fondo.png).
+       Logo Velar (versión clara, para fondo oscuro) superpuesto arriba a la izq.
+       =========================================================== -->
+  <header class="hallazgos-header">
+    <img
+      class="hallazgos-header__fondo"
+      src="assets/img/hallazgos-header-fondo.png"
+      alt=""
+      aria-hidden="true"
+    />
+    <a href="home.html" class="logo-chico-link hallazgos-header__logo-link" aria-label="Velar — ir al inicio">
+      <img class="logo-chico logo-chico--claro" src="assets/img/logo-chico-claro.png" alt="Velar" />
+    </a>
+  </header>
+
+  <!-- ===========================================================
+       CONTENIDO PRINCIPAL — grilla de proyectos
+       =========================================================== -->
+  <main class="hallazgos-main">
+    <section class="hallazgos-grid" aria-label="Proyectos de Velar">
+
+    <button type="button" class="grid-cell pos-r1c1 grid-cell--border-green" id="celda-r1c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r1c2 grid-cell--border-green" id="celda-r1c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r1c3 grid-cell--border-green" id="celda-r1c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r1c4 grid-cell--border-cream" id="celda-r1c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r1c5 grid-cell--border-green" id="celda-r1c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r2c1 grid-cell--border-green" id="celda-r2c1" data-categoria="movimiento">
+      <span class="grid-cell__label visually-hidden">Gráfica en movimiento</span>
+    </button>
+    <button type="button" class="grid-cell pos-r2c2 grid-cell--border-cream" id="celda-r2c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r2c3 grid-cell--border-green" id="celda-r2c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r2c4 grid-cell--border-green" id="celda-r2c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r2c5 grid-cell--border-green" id="celda-r2c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r3c1 grid-cell--border-peach" id="celda-r3c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r3c2 grid-cell--border-green" id="celda-r3c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r3c3 grid-cell--border-green" id="celda-r3c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r3c4 grid-cell--border-cream grid-cell--wide" id="celda-r3c4" data-categoria="editorial">
+      <span class="grid-cell__label visually-hidden">Diseño editorial</span>
+    </button>
+    <button type="button" class="grid-cell pos-r4c1 grid-cell--border-green" id="celda-r4c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r4c2 grid-cell--border-cream" id="celda-r4c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r4c3 grid-cell--border-green" id="celda-r4c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r4c4 grid-cell--border-green" id="celda-r4c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r4c5 grid-cell--border-green" id="celda-r4c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r5c1 grid-cell--border-green" id="celda-r5c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r5c2 grid-cell--border-peach grid-cell--big" id="celda-r5c2" data-categoria="identidad" data-proyecto="identidad-minujin">
+      <span class="grid-cell__label visually-hidden">Sistema de identidad visual</span>
+    </button>
+    <button type="button" class="grid-cell pos-r5c4 grid-cell--border-cream" id="celda-r5c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r5c5 grid-cell--border-green" id="celda-r5c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r6c1 grid-cell--border-green" id="celda-r6c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r6c4 grid-cell--border-green" id="celda-r6c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r6c5 grid-cell--border-green" id="celda-r6c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r7c1 grid-cell--border-green" id="celda-r7c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r7c2 grid-cell--border-green" id="celda-r7c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r7c3 grid-cell--border-green" id="celda-r7c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r7c4 grid-cell--border-cream" id="celda-r7c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r7c5 grid-cell--border-green" id="celda-r7c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r8c1 grid-cell--border-peach grid-cell--tall" id="celda-r8c1" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r8c2 grid-cell--border-cream" id="celda-r8c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r8c3 grid-cell--border-green" id="celda-r8c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r8c4 grid-cell--border-green" id="celda-r8c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r8c5 grid-cell--border-peach" id="celda-r8c5" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r9c2 grid-cell--border-green" id="celda-r9c2" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r9c3 grid-cell--border-peach" id="celda-r9c3" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r9c4 grid-cell--border-cream" id="celda-r9c4" disabled aria-hidden="true"></button>
+    <button type="button" class="grid-cell pos-r9c5 grid-cell--border-green" id="celda-r9c5" disabled aria-hidden="true"></button>
+
+    </section>
+  </main>
+
+  <!-- ===========================================================
+       MODAL DE PROYECTO
+       Oculto por defecto (atributo hidden). hallazgos.js se encarga de
+       completar título / texto / galería y de mostrar y ocultar esto.
+       =========================================================== -->
+  <div class="modal-overlay" id="modalOverlay" data-modal-overlay hidden>
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitulo"
+      data-modal
+    >
+      <button
+        type="button"
+        class="modal__cerrar"
+        id="modalCerrar"
+        data-modal-cerrar
+        aria-label="Cerrar"
+      >
+        <img src="assets/img/cerrar-hallazgos.png" alt="" />
+      </button>
+
+      <header class="modal__header">
+        <h2 class="modal__titulo" id="modalTitulo" data-modal-titulo></h2>
+      </header>
+
+      <p class="modal__texto" id="modalTexto" data-modal-texto></p>
+
+      <div class="modal__galeria" id="modalGaleria" data-modal-galeria>
+        <!-- hallazgos.js inserta aquí las <img> de la galería del proyecto -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================================================
+       NAV INFERIOR — mismo sistema de ventanas que el resto del sitio.
+       "Hallazgos" es la página activa (segunda ventana).
+       =========================================================== -->
+  <nav class="windows-nav" aria-label="Navegación entre secciones">
+    <a class="window-nav" href="elpatio.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El patio</span>
+    </a>
+    <a class="window-nav" href="hallazgos.html" aria-current="page">
+      <img src="assets/img/ventana-nav-activa.png" alt="" />
+      <span class="window-nav-tooltip">Hallazgos</span>
+    </a>
+    <a class="window-nav" href="puertasadentro.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">Puertas adentro</span>
+    </a>
+    <a class="window-nav" href="elescondite.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El escondite</span>
+    </a>
+    <a class="window-nav" href="elumbral.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El umbral</span>
+    </a>
+  </nav>
+
+  <script src="js/nav-ventanas.js"></script>
+  <script src="js/hallazgos.js"></script>
+</body>
+</html>

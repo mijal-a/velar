@@ -1,0 +1,93 @@
+/* =====================================================
+   VELAR — Estudio de diseño
+   Hoja de estilos global: reset, variables y tipografía
+   ===================================================== */
+
+:root {
+  /* Tipografías
+     - Cormorant Garamond: serif editorial (Google Fonts)
+     - Archivo: stand-in temporal de Acumin Pro (no está en Google Fonts).
+       Si conseguís el kit de Adobe Fonts de Acumin Pro, reemplazá
+       la variable --font-sans y el <link> de Google Fonts en el <head>. */
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Colores extraídos del kit visual */
+  --c-cream: #f3eedc;
+  --c-cream-soft: #f8f4e8;
+  --c-sage: #b7c79f;
+  --c-sage-dark: #7c8f68;
+  --c-text-dark: #4d3d24;
+  --c-text-muted: #6e6b4e;
+  --c-button-bg: #5c4b2a;
+  --c-border-soft: rgba(77, 61, 36, 0.18);
+
+  --container-max: 1600px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--c-text-dark);
+  background: var(--c-cream);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilidad: oculto visualmente, accesible para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Foco accesible consistente en todo el sitio */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--c-sage-dark);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

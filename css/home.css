@@ -41,7 +41,6 @@
   z-index: 1;
   width: 100%;
   max-width: var(--container-max);
-  margin: clamp(1rem, 3vh, 2rem) auto 0;
   aspect-ratio: 1920 / 892;
 }
 

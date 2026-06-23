@@ -36,6 +36,15 @@ const PROYECTOS = {
         src: 'assets/img/TARJETON3 (2).jpg',
         alt: 'lámina 2',
       },
+      {
+        src: 'assets/img/hallazgo1-afiche.jpg',
+        alt: 'lámina 2',
+      },
+      {
+        src: 'assets/img/hallazgo1-banner.jpg',
+        alt: 'lámina 2',
+      },
+      
     ],
   },
 

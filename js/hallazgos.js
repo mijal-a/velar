@@ -1,5 +1,6 @@
 // VELAR — hallazgos.js
-// Datos de proyectos + apertura/cierre del modal.
+// Datos de proyectos + apertura/cierre del modal con galería tipo
+// "imagen principal + miniaturas" (estilo e-commerce).
 
 const PROYECTOS = {
   'identidad-minujin': {
@@ -17,6 +18,9 @@ const PROYECTOS = {
       },
     ],
   },
+
+  // Agregá acá cada proyecto nuevo, con la misma clave que pusiste
+  // en data-proyecto del botón correspondiente en el HTML.
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.querySelector('[data-modal]');
   const modalTitulo = document.querySelector('[data-modal-titulo]');
   const modalTexto = document.querySelector('[data-modal-texto]');
-  const modalGaleria = document.querySelector('[data-modal-galeria]');
+  const imagenPrincipal = document.querySelector('[data-modal-imagen-principal]');
+  const miniaturas = document.querySelector('[data-modal-miniaturas]');
   const btnCerrar = document.querySelector('[data-modal-cerrar]');
   const celdas = document.querySelectorAll('.grid-cell[data-proyecto]');
 
@@ -32,17 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let ultimoDisparador = null;
 
+  function mostrarImagen(imagen, index) {
+    imagenPrincipal.src = imagen.src;
+    imagenPrincipal.alt = imagen.alt || '';
+
+    miniaturas.querySelectorAll('.modal__miniatura').forEach((btn, i) => {
+      btn.classList.toggle('modal__miniatura--activa', i === index);
+    });
+  }
+
   function llenarModal(proyecto) {
     modalTitulo.textContent = proyecto.titulo;
     modalTexto.textContent = proyecto.texto;
-    modalGaleria.innerHTML = '';
+    miniaturas.innerHTML = '';
 
-    proyecto.imagenes.forEach((imagen) => {
+    proyecto.imagenes.forEach((imagen, index) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'modal__miniatura';
+      btn.setAttribute('aria-label', `Ver imagen ${index + 1}`);
+
       const img = document.createElement('img');
       img.src = imagen.src;
-      img.alt = imagen.alt || '';
-      modalGaleria.appendChild(img);
+      img.alt = '';
+
+      btn.appendChild(img);
+      btn.addEventListener('click', () => mostrarImagen(imagen, index));
+      miniaturas.appendChild(btn);
     });
+
+    mostrarImagen(proyecto.imagenes[0], 0);
   }
 
   function abrirModal(idProyecto, disparador) {
@@ -61,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function cerrarModal() {
     overlay.hidden = true;
     document.body.classList.remove('no-scroll');
-    modalGaleria.innerHTML = '';
 
     if (ultimoDisparador) {
       ultimoDisparador.focus();

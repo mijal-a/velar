@@ -9,6 +9,8 @@
 .page-body {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-body::before {
@@ -185,25 +187,30 @@
   user-select: none;
 }
 
-/* Nav inferior de ventanas (presente en las 5 páginas internas) */
+/* ===========================================================
+   NAV INFERIOR DE VENTANAS (presente en las 5 páginas internas)
+   Antes: position fixed, centrado-corrido con left:60%.
+   Ahora: en flujo normal, pegado abajo del body vía flexbox
+   (sticky footer con margin-top:auto), margen a la derecha,
+   y ventanas más grandes.
+   =========================================================== */
+
 .windows-nav {
-  position: fixed;
-  bottom: 2rem;
-  left: 60%;
-  transform: translateX(-50%);
-  width: 40%;
-  z-index: 1000;
+  position: relative;
   z-index: 2;
+  width: 100%;
+  margin-top: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
-  
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding: clamp(1.25rem, 3vh, 2rem) clamp(1.5rem, 4vw, 3rem);
 }
 
 .window-nav {
   position: relative;
   display: block;
-  width: 7%;
+  width: clamp(64px, 6vw, 96px);
   transition: transform 0.2s ease;
 }
 
@@ -255,11 +262,12 @@
   }
 
   .windows-nav {
-    left: 5%;
-    width: 90%;
+    justify-content: center;
+    gap: clamp(0.75rem, 3vw, 1.25rem);
+    padding: 1.25rem 5%;
   }
 
   .window-nav {
-    width: 16%;
+    width: clamp(48px, 14vw, 64px);
   }
 }

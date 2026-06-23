@@ -65,9 +65,18 @@ const NIVELES = {
   },
 
   dificil: {
-    imagenA: '',
-    imagenB: '',
-    diferencias: [],
+    imagenA: 'assets/img/diferencias-dificil-a.png',
+    imagenB: 'assets/img/diferencias-dificil-b.png',
+    diferencias: [
+      { x: 31, y: 16 }, // TAKE AWAY
+      { x: 16, y: 53 }, // cinturón / llaves
+      { x: 55, y: 10 }, // número 145
+      { x: 55, y: 57 }, // termo
+      { x: 66, y: 59 }, // tatuajes
+      { x: 48, y: 94 }, // caja abajo
+      { x: 78, y: 92 }  // perro
+    ],
+
 
     textoModal:
       'Ver no siempre significa percibir. Nuestro cerebro completa información, agrupa formas y establece relaciones constantemente para interpretar lo que observa. Por eso algunas diferencias permanecen ocultas: no porque sean invisibles, sino porque nuestra percepción las integra dentro de un mismo conjunto. Diseñar también consiste en comprender cómo las personas construyen sentido a partir de lo que ven.',

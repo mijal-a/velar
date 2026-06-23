@@ -77,8 +77,44 @@ const PROYECTOS = {
         src: 'assets/img/hallazgo2_6.jpg',
         alt: 'a ',
       },
+      {
+        src: 'assets/img/hallazgo2_7.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/hallazgo2_8.jpg',
+        alt: 'a ',
+      },
+    ]
+  },
+
+  'diseno-editorial': {
+    titulo: 'Diseño editorial',
+    texto: 'A partir de una misma noticia y una paleta cromática común, se desarrollaron distintas dobles páginas editoriales explorando composiciones, jerarquías tipográficas y tratamientos visuales diversos, con el objetivo de construir identidades gráficas diferenciadas que evocaran revistas completamente distintas.',
+    imagenes: [
+      {
+        src: 'assets/img/editorial.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/editorial2.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/editorial3.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/editorial4.jpg',
+        alt: 'a ',
+      },
+      {
+        src: 'assets/img/editorial5.jpg',
+        alt: 'a ',
+      },
     ]
   }
+  
   // Agregá acá cada proyecto nuevo, con la misma clave que pusiste
   // en data-proyecto del botón correspondiente en el HTML.
 };

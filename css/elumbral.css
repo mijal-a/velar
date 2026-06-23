@@ -21,6 +21,8 @@
   width: clamp(260px, 30vw, 460px);
   height: auto;
   display: block;
+margin-left: -3%;
+
 }
 
 /* ---------- Frase destacada (dos líneas resaltadas) ---------- */

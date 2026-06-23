@@ -79,7 +79,7 @@ margin-left: -3%;
   flex-direction: column;
   gap: 1.4rem;
   margin-top: 2rem;
-  max-width: 26rem;
+  max-width: 10rem;
 }
 
 .elumbral-texto__italica {
@@ -92,7 +92,8 @@ margin-left: -3%;
 
 .elumbral-texto__parrafo {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-size: 12px;
+  font-weight: 900;
   line-height: 1.5;
   color: var(--c-text-dark);
 }

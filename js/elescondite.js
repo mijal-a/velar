@@ -36,7 +36,7 @@ const NIVELES = {
     ],
 
     textoModal:
-      'Observar es una de las herramientas más importantes del diseño. Muchas veces las diferencias no están ocultas: simplemente todavía no fueron vistas. El contraste permite destacar elementos y dirigir la atención. No todo se mira de la misma manera: el tamaño, la posición y el peso visual ayudan a establecer distintos niveles de lectura.',
+      'Observar es una de las herramientas más importantes del diseño. <br><br>Muchas veces las diferencias no están ocultas: simplemente todavía <em>no fueron vistas</em>. <br>El contraste permite destacar elementos y dirigir la atención. <br>No todo se mira de la misma manera: el tamaño, la posición y el peso visual ayudan a establecer distintos <strong>niveles de lectura</strong>.',
 
     asideModal:
       'Diseñar también implica detectar detalles que suelen pasar desapercibidos.',
@@ -58,7 +58,7 @@ const NIVELES = {
     ],
 
     textoModal:
-      'Cuando observamos una imagen no recorremos todos sus elementos al mismo tiempo. La jerarquía visual organiza la información y guía nuestra mirada a través de tamaños, posiciones, contrastes y relaciones entre los elementos. Detectar diferencias también implica comprender qué llama primero nuestra atención y qué queda en segundo plano. Diseñar es construir recorridos visuales que ayuden a interpretar una imagen.',
+      'Cuando observamos una imagen no recorremos todos sus elementos <em>al mismo tiempo</em>. <br><br>La <strong>jerarquía visual</strong> organiza la información y guía nuestra mirada a través de tamaños, posiciones, contrastes y relaciones entre los elementos. <br>Detectar diferencias también implica comprender qué llama primero nuestra atención y qué queda en segundo plano. <br>Diseñar es construir recorridos visuales que ayuden a interpretar una imagen.',
 
     asideModal:
       'La mirada siempre sigue un recorrido, incluso cuando no somos conscientes de ello.',
@@ -79,7 +79,7 @@ const NIVELES = {
 
 
     textoModal:
-      'Ver no siempre significa percibir. Nuestro cerebro completa información, agrupa formas y establece relaciones constantemente para interpretar lo que observa. Por eso algunas diferencias permanecen ocultas: no porque sean invisibles, sino porque nuestra percepción las integra dentro de un mismo conjunto. Diseñar también consiste en comprender cómo las personas construyen sentido a partir de lo que ven.',
+      '<em>Ver no siempre significa percibir</em>. Nuestro cerebro completa información, agrupa formas y establece relaciones constantemente para interpretar lo que observa. <br><br> Por eso algunas diferencias permanecen ocultas: no porque sean invisibles, sino porque nuestra percepción las integra dentro de un mismo conjunto. Diseñar también consiste en comprender cómo las personas <strong>construyen sentido a partir de lo que ven</strong>.',
 
     asideModal:
       'La percepción no registra la realidad exactamente como es: la interpreta.',
@@ -421,10 +421,10 @@ else {
   modalTitulo.textContent = 'OBSERVÁ CON CALMA';
 }
 
-modalTexto.textContent =
+modalTexto.innerHTML =
   datos.textoModal || '';
 
-modalAside.textContent =
+modalAside.innerHTML =
   datos.asideModal || '';
 
 modalEncontradas.textContent =

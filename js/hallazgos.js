@@ -10,11 +10,31 @@ const PROYECTOS = {
     imagenes: [
       {
         src: 'assets/img/proyecto-minujin-01.png',
-        alt: 'Sistema de identidad visual para centro cultural — lámina 1',
+        alt: 'Sistema ',
       },
       {
-        src: 'assets/img/proyecto-minujin-02.png',
-        alt: 'Sistema de identidad visual para centro cultural — lámina 2',
+        src: 'assets/img/TARJETON1 (2).jpg',
+        alt: 'lámina 2',
+      },
+      {
+        src: 'assets/img/TARJETON1 (1).jpg',
+        alt: 'lámina 2',
+      },
+      {
+        src: 'assets/img/TARJETON2 (1).jpg',
+        alt: 'lámina 2',
+      },
+      {
+        src: 'assets/img/TARJETON2 (2).jpg',
+        alt: 'lámina 2',
+      },
+      {
+        src: 'assets/img/TARJETON3 (1).jpg',
+        alt: 'lámina 2',
+      },
+      {
+        src: 'assets/img/TARJETON3 (2).jpg',
+        alt: 'lámina 2',
       },
     ],
   },

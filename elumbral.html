@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Velar — El umbral</title>
+  <title>Velar — El Umbral</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,23 +14,91 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/page.css" />
+  <link rel="stylesheet" href="css/elumbral.css" />
 </head>
-<body class="page-body">
+<body class="page-body elumbral-page">
+
   <header class="page-header">
     <a href="home.html" class="logo-chico-link" aria-label="Velar — ir al inicio">
       <img class="logo-chico" src="assets/img/logo-chico.png" alt="Velar" />
     </a>
-    <a class="volver" href="home.html">&larr; Volver</a>
   </header>
 
-  <main class="page-placeholder">
-    <img class="ventana-abierta" src="assets/img/ventana-elumbral.png" alt="El umbral" />
-    <h1>El umbral</h1>
-    <p>
-      Esta sección todavía está en construcción. Cuando me pases el diseño
-      de contenido de &laquo;El umbral&raquo;, lo maquetamos acá manteniendo
-      el header y el sistema de base que ya armamos.
-    </p>
+  <main class="elumbral-main">
+
+    <img class="elumbral-titulo" src="assets/img/titulo-elumbral.png" alt="El Umbral" />
+
+    <div class="elumbral-frase">
+      <span class="elumbral-frase__linea elumbral-frase__linea--1">Algunas puertas se abren para mirar.</span>
+      <span class="elumbral-frase__linea elumbral-frase__linea--2">Otras para empezar algo.</span>
+    </div>
+
+    <div class="elumbral-texto">
+      <p class="elumbral-texto__italica">Después de recorrer el patio, cada hallazgo abre una nueva posibilidad.</p>
+      <p class="elumbral-texto__parrafo">Podés iniciar una <em>conversación</em> con nosotros o descubrir Rastro, nuestra herramienta para diseñadores.</p>
+    </div>
+
+    <div class="elumbral-puertas">
+
+      <article class="puerta" data-puerta="contacto">
+        <button type="button" class="puerta__boton" aria-haspopup="dialog">
+          <img class="puerta__img puerta__img--normal" src="assets/img/puerta-verde.png" alt="" />
+          <img class="puerta__img puerta__img--hover" src="assets/img/puerta-verde-hover.png" alt="" />
+          <span class="puerta__hint">click</span>
+        </button>
+        <div class="puerta__card puerta__card--verde">
+          <h2>Conversar</h2>
+          <p>Si creés que hay algo por revelar, <em>nos gustaría escucharlo.</em></p>
+          <p class="puerta__email">contacto@velar.com</p>
+          <p class="puerta__redes">
+            <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="puerta" data-puerta="rastro">
+        <button type="button" class="puerta__boton" aria-haspopup="dialog">
+          <img class="puerta__img puerta__img--normal" src="assets/img/puerta-marron.png" alt="" />
+          <img class="puerta__img puerta__img--hover" src="assets/img/puerta-marron-hover.png" alt="" />
+          <span class="puerta__hint">click</span>
+        </button>
+        <div class="puerta__card puerta__card--marron">
+          <h2>Rastro</h2>
+          <p>Una aplicación para diseñadores <em>que registra las huellas del proceso creativo.</em></p>
+          <button type="button" class="puerta__abrir" disabled>ABRIR -&gt;</button>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="elumbral-tagline">Todo hallazgo es también un comienzo.</p>
+
   </main>
+
+  <nav class="windows-nav" aria-label="Navegación entre secciones">
+    <a class="window-nav" href="elpatio.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El patio</span>
+    </a>
+    <a class="window-nav" href="hallazgos.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">Hallazgos</span>
+    </a>
+    <a class="window-nav" href="puertasadentro.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">Puertas adentro</span>
+    </a>
+    <a class="window-nav" href="elescondite.html">
+      <img src="assets/img/ventana-nav.png" alt="" />
+      <span class="window-nav-tooltip">El escondite</span>
+    </a>
+    <a class="window-nav" href="elumbral.html" aria-current="page">
+      <img src="assets/img/ventana-nav-activa.png" alt="" />
+      <span class="window-nav-tooltip">El umbral</span>
+    </a>
+  </nav>
+
+  <script src="js/nav-ventanas.js"></script>
+  <script src="js/elumbral.js"></script>
 </body>
 </html>

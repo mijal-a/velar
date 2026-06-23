@@ -1,0 +1,293 @@
+/* =====================================================
+   EL UMBRAL — estilos específicos de la página
+   El fondo general lo hereda de .page-body (page.css).
+   ===================================================== */
+
+/* ---------- Layout principal ---------- */
+
+.elumbral-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(260px, 38%) 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.75rem 2rem;
+  padding: clamp(1.5rem, 5vh, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(4rem, 10vh, 6rem);
+}
+
+.elumbral-titulo {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  width: clamp(260px, 30vw, 460px);
+  height: auto;
+  display: block;
+}
+
+/* ---------- Frase destacada (dos líneas resaltadas) ---------- */
+
+.elumbral-frase {
+  grid-column: 1 / 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+  margin: 1rem 0 0;
+}
+
+.elumbral-frase__linea {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.15rem 0.5rem;
+}
+
+.elumbral-frase__linea--1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  background-color: #ece0a0;
+  color: #2c2b1f;
+}
+
+.elumbral-frase__linea--2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  background-color: #cdbf86;
+  color: #2c2b1f;
+}
+
+/* ---------- Bloque de texto inferior izquierdo ---------- */
+
+.elumbral-texto {
+  grid-column: 1 / 2;
+  grid-row: 3;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 2rem;
+  max-width: 26rem;
+}
+
+.elumbral-texto__italica {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  line-height: 1.5;
+  color: var(--c-text-muted);
+}
+
+.elumbral-texto__parrafo {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--c-text-dark);
+}
+
+.elumbral-texto__parrafo em {
+  font-style: italic;
+}
+
+/* ---------- Puertas ---------- */
+
+.elumbral-puertas {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding-top: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.puerta {
+  position: relative;
+  width: clamp(200px, 20vw, 320px);
+  aspect-ratio: 331 / 484;
+}
+
+/* Botón de la puerta: define el tamaño/posición que la tarjeta
+   abierta va a heredar exactamente (mismo inset:0, mismo contenedor) */
+.puerta__boton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.puerta__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Hover = intercambio de PNG (normal -> hover), sin animaciones de grosor */
+.puerta__img--hover {
+  opacity: 0;
+}
+
+.puerta__boton:hover .puerta__img--hover,
+.puerta__boton:focus-visible .puerta__img--hover {
+  opacity: 1;
+}
+
+.puerta__boton:hover .puerta__img--normal,
+.puerta__boton:focus-visible .puerta__img--normal {
+  opacity: 0;
+}
+
+.puerta__hint {
+  position: absolute;
+  bottom: 6%;
+  right: 8%;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--c-text-muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.puerta__boton:hover .puerta__hint,
+.puerta__boton:focus-visible .puerta__hint {
+  opacity: 1;
+}
+
+/* Tarjeta abierta: mismo tamaño/posición que la puerta (inset:0 dentro
+   de .puerta), reemplaza visualmente al botón sin modal, sin fixed,
+   sin centrado en pantalla. */
+.puerta__card {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: left;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  overflow: hidden;
+}
+
+.puerta.puerta--abierta .puerta__boton {
+  visibility: hidden;
+}
+
+.puerta.puerta--abierta .puerta__card {
+  display: flex;
+}
+
+.puerta__card h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  margin: 0 0 1rem;
+  color: #f3efe1;
+}
+
+.puerta__card p {
+  font-family: var(--font-serif);
+  font-size: clamp(0.9rem, 1.15vw, 1rem);
+  line-height: 1.45;
+  margin: 0 0 1rem;
+}
+
+.puerta__card p em {
+  font-style: italic;
+}
+
+.puerta__card--verde {
+  background-color: #8a9b7c;
+  color: #2c2b1f;
+}
+
+.puerta__card--marron {
+  background-color: #8a7256;
+  color: #2a1f13;
+}
+
+.puerta__email {
+  font-family: var(--font-sans) !important;
+  font-style: normal;
+  font-size: clamp(0.85rem, 1vw, 0.95rem) !important;
+}
+
+.puerta__redes {
+  font-family: var(--font-sans) !important;
+  font-size: clamp(0.85rem, 1vw, 0.95rem) !important;
+  margin-top: auto;
+}
+
+.puerta__redes a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.puerta__redes a:hover,
+.puerta__redes a:focus-visible {
+  text-decoration: underline;
+}
+
+.puerta__abrir {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #efe7c9;
+  cursor: default;
+}
+
+/* ---------- Frase final ---------- */
+
+.elumbral-tagline {
+  grid-column: 1 / 3;
+  grid-row: 4;
+  align-self: end;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: var(--c-text-muted);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 860px) {
+  .elumbral-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+  }
+
+  .elumbral-titulo,
+  .elumbral-frase,
+  .elumbral-texto,
+  .elumbral-puertas,
+  .elumbral-tagline {
+    grid-column: 1 / 2;
+  }
+
+  .elumbral-puertas {
+    grid-row: auto;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  .puerta {
+    width: 42%;
+  }
+}
